@@ -1,0 +1,94 @@
+Options -indexes
+RewriteEngine On
+RewriteBase /e-gantep/kullanici-panel/
+#RewriteCond %{HTTPS} off
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^sms-onay$ index.php?page=sms-onay [NC]
+RewriteRule ^ilan-ekle$ index.php?page=ilan-ekle [NC]
+RewriteRule ^ilan-liste$ index.php?page=ilan-liste [NC]
+RewriteRule ^ilan-duzenle/(.*)$ index.php?page=ilan-duzenle&ID=$1 [NC]
+RewriteRule ^ilan-sil/(.*)$ index.php?page=ilan-sil&ID=$1 [NC]
+RewriteRule ^hesap-ayarlari$ index.php?page=hesap-ayarlari [NC]
+RewriteRule ^profil$ index.php?page=profil [NC]
+RewriteRule ^login$ login.php [NC]
+RewriteRule ^logout$ index.php?page=logout [NC]
+RewriteRule ^resimler/(.*)/(.*)$ index.php?page=resimler&ilan=$1&ID=$2 [NC]
+RewriteRule ^resim-sil/(.*)/(.*)/(.*)$ index.php?page=resim-sil&ilan=$1&ID=$2&silinecekID=$3 [NC]
+
+
+# Enable caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Enable compression
+<IfModule mod_deflate.c>
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE "application/atom+xml" \
+                                      "application/javascript" \
+                                      "application/json" \
+                                      "application/ld+json" \
+                                      "application/manifest+json" \
+                                      "application/rss+xml" \
+                                      "application/schema+json" \
+                                      "application/vnd.geo+json" \
+                                      "application/vnd.ms-fontobject" \
+                                      "application/x-font-ttf" \
+                                      "application/x-javascript" \
+                                      "application/x-web-app-manifest+json" \
+                                      "application/xhtml+xml" \
+                                      "application/xml" \
+                                      "font/eot" \
+                                      "font/opentype" \
+                                      "image/bmp" \
+                                      "image/svg+xml" \
+                                      "image/vnd.microsoft.icon" \
+                                      "image/x-icon" \
+                                      "text/cache-manifest" \
+                                      "text/calendar" \
+                                      "text/css" \
+                                      "text/javascript" \
+                                      "text/plain" \
+                                      "text/xml" \
+                                      "font/woff" \
+                                      "font/woff2" \
+                                      "application/java-archive" \
+                                      "application/msword" \
+                                      "application/pdf" \
+                                      "application/x-bzip" \
+                                      "application/x-csh" \
+                                      "application/x-sh" \
+                                      "application/x-shockwave-flash" \
+                                      "application/x-tar" \
+                                      "application/xhtml+xml" \
+                                      "application/zip" \
+                                      "application/octet-stream" \
+                                      "audio/midi" \
+                                      "audio/mpeg" \
+                                      "audio/ogg" \
+                                      "audio/wav" \
+                                      "image/gif" \
+                                      "image/ico" \
+                                      "image/jpeg" \
+                                      "image/jpg" \
+                                      "image/png" \
+                                      "image/svg+xml" \
+                                      "image/webp" \
+                                      "video/3gpp" \
+                                      "video/mp4" \
+                                      "video/mpeg" \
+                                      "video/ogg" \
+                                      "video/quicktime" \
+                                      "video/webm" \
+                                      "video/x-flv" \
+                                      "video/x-msvideo"
+    </IfModule>
+</IfModule>
+

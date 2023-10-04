@@ -1,0 +1,104 @@
+Options -indexes
+RewriteEngine On
+RewriteBase /e-gantep/admin/
+#RewriteCond %{HTTPS} off
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^list/(.*)$ index.php?page=list&table=$1 [NC]
+RewriteRule ^verification/(.*)$ index.php?page=verification&email=$1 [NC]
+RewriteRule ^add-module$ index.php?page=add-module [NC]
+RewriteRule ^add-user$ index.php?page=add-user [NC]
+RewriteRule ^list-user$ index.php?page=list-user [NC]
+RewriteRule ^edit-user/(.*)$ index.php?page=edit-user&ID=$1 [NC]
+RewriteRule ^remove-user/(.*)$ index.php?page=remove-user&ID=$1 [NC]
+RewriteRule ^add/(.*)$ index.php?page=add&table=$1 [NC]
+RewriteRule ^edit/(.*)/(.*)$ index.php?page=edit&table=$1&ID=$2 [NC]
+RewriteRule ^remove/(.*)/(.*)$ index.php?page=remove&table=$1&ID=$2 [NC]
+RewriteRule ^seo-settings$ index.php?page=seo-settings [NC]
+RewriteRule ^contact-settings$ index.php?page=contact-settings [NC]
+
+RewriteRule ^comments$ index.php?page=comments [NC]
+RewriteRule ^comments-detail/(.*)$ index.php?page=comments-detail&ID=$1 [NC]
+
+
+RewriteRule ^adverts$ index.php?page=adverts [NC]
+RewriteRule ^adverts-detail/(.*)$ index.php?page=adverts-detail&ID=$1 [NC]
+
+RewriteRule ^login$ login.php [NC]
+RewriteRule ^logout$ index.php?page=logout [NC]
+
+
+# Enable caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Enable compression
+<IfModule mod_deflate.c>
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE "application/atom+xml" \
+                                      "application/javascript" \
+                                      "application/json" \
+                                      "application/ld+json" \
+                                      "application/manifest+json" \
+                                      "application/rss+xml" \
+                                      "application/schema+json" \
+                                      "application/vnd.geo+json" \
+                                      "application/vnd.ms-fontobject" \
+                                      "application/x-font-ttf" \
+                                      "application/x-javascript" \
+                                      "application/x-web-app-manifest+json" \
+                                      "application/xhtml+xml" \
+                                      "application/xml" \
+                                      "font/eot" \
+                                      "font/opentype" \
+                                      "image/bmp" \
+                                      "image/svg+xml" \
+                                      "image/vnd.microsoft.icon" \
+                                      "image/x-icon" \
+                                      "text/cache-manifest" \
+                                      "text/calendar" \
+                                      "text/css" \
+                                      "text/javascript" \
+                                      "text/plain" \
+                                      "text/xml" \
+                                      "font/woff" \
+                                      "font/woff2" \
+                                      "application/java-archive" \
+                                      "application/msword" \
+                                      "application/pdf" \
+                                      "application/x-bzip" \
+                                      "application/x-csh" \
+                                      "application/x-sh" \
+                                      "application/x-shockwave-flash" \
+                                      "application/x-tar" \
+                                      "application/xhtml+xml" \
+                                      "application/zip" \
+                                      "application/octet-stream" \
+                                      "audio/midi" \
+                                      "audio/mpeg" \
+                                      "audio/ogg" \
+                                      "audio/wav" \
+                                      "image/gif" \
+                                      "image/ico" \
+                                      "image/jpeg" \
+                                      "image/jpg" \
+                                      "image/png" \
+                                      "image/svg+xml" \
+                                      "image/webp" \
+                                      "video/3gpp" \
+                                      "video/mp4" \
+                                      "video/mpeg" \
+                                      "video/ogg" \
+                                      "video/quicktime" \
+                                      "video/webm" \
+                                      "video/x-flv" \
+                                      "video/x-msvideo"
+    </IfModule>
+</IfModule>
