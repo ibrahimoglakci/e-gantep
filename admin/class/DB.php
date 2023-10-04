@@ -3,9 +3,7 @@
 
 class DB {
 	var $server="localhost";
-	/* var $username="ibrah106_dev";
-	var $password="36280426674ibO";
-	var $dbname="ibrah106_egantep"; */
+
 
 	var $username="root";
 	var $password="";
